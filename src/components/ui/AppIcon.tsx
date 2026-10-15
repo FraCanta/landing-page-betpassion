@@ -17,6 +17,8 @@ import boltCircle from "@iconify-icons/solar/bolt-circle-linear";
 import penNewSquare from "@iconify-icons/solar/pen-new-square-linear";
 import billList from "@iconify-icons/solar/bill-list-linear";
 import dangerTriangle from "@iconify-icons/solar/danger-triangle-linear";
+import phone from "@iconify-icons/solar/phone-linear";
+import userId from "@iconify-icons/solar/user-id-linear";
 import whatsapp from "@iconify-icons/logos/whatsapp-icon";
 
 export type AppIconName =
@@ -29,6 +31,8 @@ export type AppIconName =
   | "solar:pen-new-square-linear"
   | "solar:bill-list-linear"
   | "solar:danger-triangle-linear"
+  | "solar:phone-linear"
+  | "solar:user-id-linear"
   | "solar:football-linear"
   | "solar:gameboy-linear"
   | "solar:ticket-linear"
@@ -51,6 +55,8 @@ const icons: Record<AppIconName, IconifyIcon> = {
   "solar:pen-new-square-linear": penNewSquare,
   "solar:bill-list-linear": billList,
   "solar:danger-triangle-linear": dangerTriangle,
+  "solar:phone-linear": phone,
+  "solar:user-id-linear": userId,
   "logos:whatsapp-icon": whatsapp,
 };
 

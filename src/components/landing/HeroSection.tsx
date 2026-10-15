@@ -23,7 +23,7 @@ export function HeroSection() {
         <Image src={landingAssets.phone} alt="Schermata Betpassion mostrata su uno smartphone" width={1122} height={1402} priority sizes="(min-width: 1280px) 22vw, 25vw" className="absolute bottom-2 right-[2%] z-20 h-[88%] w-auto object-contain object-bottom drop-shadow-2xl xl:max-[90rem]:right-0 xl:max-[90rem]:h-[80%] min-[90rem]:right-[2%] min-[90rem]:h-[88%] min-[100rem]:right-[4%]" />
       </div>
 
-      <Container className="relative z-10 pb-8 pt-7 sm:pb-10 sm:pt-9 md:min-h-[560px] md:max-xl:flex md:max-xl:min-h-0 md:max-xl:flex-col md:pb-8 md:pt-7 min-[100rem]:min-h-[820px]">
+      <Container className="relative z-10 pb-8 pt-7 sm:pb-10 sm:pt-9 md:min-h-[560px] md:max-xl:flex md:max-xl:min-h-0 md:max-xl:flex-col md:pb-8 md:pt-7 xl:flex xl:flex-col xl:justify-center min-[100rem]:min-h-[820px]">
         <div data-enter="hero-copy" className="max-w-2xl md:max-xl:max-w-full xl:max-w-[58%] xl:max-[90rem]:max-w-[560px] min-[90rem]:max-w-[58%]">
           <p className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-text-secondary">
             <span className="h-1 w-6 bg-accent" aria-hidden="true" /> Sport <span aria-hidden="true">·</span> Casinò <span aria-hidden="true">·</span> Live
@@ -34,7 +34,7 @@ export function HeroSection() {
             <span className="block">con Bar Lamanna</span>
           </h1>
           <p className="mt-5 max-w-[560px] text-lg leading-7 text-text-secondary sm:text-xl md:text-2xl md:leading-9 md:max-xl:text-xl md:max-xl:leading-8 xl:max-[90rem]:text-lg xl:max-[90rem]:leading-7 min-[90rem]:max-w-[720px] min-[90rem]:text-2xl min-[90rem]:leading-9">
-            Registrati online, completa l’identificazione con <span className="whitespace-nowrap font-semibold text-accent">Bar Lamanna</span><br />e attiva il tuo bonus di benvenuto.
+            Registrati online con Betpassion tramite <span className="whitespace-nowrap font-semibold text-accent">Bar Lamanna</span><br />e attiva il tuo bonus di benvenuto.
           </p>
 
           <div className="mt-6 flex max-w-[560px] flex-col gap-3 sm:flex-row min-[90rem]:max-w-[720px]">
@@ -46,15 +46,9 @@ export function HeroSection() {
             </ActionButton>
           </div>
 
-          <div className="mt-3 max-w-[560px] min-[90rem]:max-w-[720px]">
-            <ActionButton href={landingLinks.whatsapp} variant="whatsapp-dark" className="min-h-14 w-full justify-center rounded-lg border border-white shadow-[0_8px_24px_rgba(0,77,32,0.2)]">
-              <AppIcon name="logos:whatsapp-icon" size={30} /> Invia documenti su WhatsApp <AppIcon name="solar:arrow-right-linear" />
-            </ActionButton>
-          </div>
-
           <p className="mt-4 flex max-w-[560px] items-start gap-3 text-sm leading-6 text-text-secondary min-[90rem]:max-w-xl">
-            <AppIcon name="solar:document-text-linear" size={22} className="mt-0.5 shrink-0 text-accent" />
-            <span>Dopo la registrazione, invia i documenti su WhatsApp per completare la procedura.</span>
+            <AppIcon name="solar:phone-linear" size={20} className="mt-0.5 shrink-0 text-accent" />
+            <span>Per informazioni, chiama direttamente <a href="tel:+393711316797" className="font-semibold text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">+39 371 131 6797</a>.</span>
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { landingAssets } from "@/config/landing-assets";
+import { landingLinks } from "@/config/site";
 import { privacyConfig } from "@/config/privacy";
 
 export const metadata: Metadata = {
@@ -12,17 +13,13 @@ export const metadata: Metadata = {
 };
 
 const sections = [
-  { id: "titolare", title: "Chi tratta i dati" },
-  { id: "dati-finalita", title: "Quali dati vengono trattati e perché" },
+  { id: "titolare", title: "Titolare del trattamento" },
+  { id: "dati-finalita", title: "Dati trattati e finalità" },
   { id: "cookie", title: "Cookie e tracciamento" },
-  { id: "conservazione", title: "Conservazione e destinatari" },
-  { id: "diritti", title: "Diritti degli utenti" },
-  { id: "servizi-esterni", title: "Servizi esterni e aggiornamenti" },
+  { id: "conservazione", title: "Hosting, destinatari e conservazione" },
+  { id: "servizi-esterni", title: "Servizi esterni" },
+  { id: "diritti", title: "Diritti degli interessati" },
 ] as const;
-
-function Pending({ children }: { children: ReactNode }) {
-  return <span className="inline rounded bg-accent/10 px-1.5 py-0.5 font-semibold text-accent ring-1 ring-inset ring-accent/30">{children}</span>;
-}
 
 function PolicySection({ id, number, title, children }: { id: string; number: string; title: string; children: ReactNode }) {
   return (
@@ -61,10 +58,7 @@ export default function PrivacyPolicyPage() {
             <h1 className="font-display text-[clamp(3.5rem,8vw,6rem)] font-bold uppercase leading-none text-text-primary">Privacy Policy</h1>
             <p className="mt-3 text-sm font-semibold text-text-primary sm:text-base">Betpassion × {privacyConfig.business.name}</p>
             <p className="mt-6 max-w-[68ch] text-base leading-8 text-text-secondary sm:text-lg">La presente informativa descrive come vengono trattati i dati personali degli utenti che visitano il sito <strong className="font-semibold text-text-primary">{privacyConfig.siteDomain}</strong> e utilizzano i servizi collegati al Bar Lamanna, ai sensi del Regolamento UE 2016/679 (GDPR).</p>
-            <p className="mt-7 text-sm text-text-secondary">Ultimo aggiornamento: <Pending>{privacyConfig.lastUpdated}</Pending></p>
-            <p role="status" className="mt-5 max-w-[68ch] rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm leading-6 text-text-primary">
-              Bozza in preparazione. I dati evidenziati devono essere completati e verificati prima della pubblicazione.
-            </p>
+            <p className="mt-7 text-sm text-text-secondary">Ultimo aggiornamento: {privacyConfig.lastUpdated}</p>
           </div>
 
           <div className="grid gap-10 py-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16 lg:py-14">
@@ -85,63 +79,51 @@ export default function PrivacyPolicyPage() {
             </nav>
 
             <article className="min-w-0 max-w-[82ch]">
-              <PolicySection id="titolare" number="01" title="Chi tratta i dati">
-                <p>Per i trattamenti di propria competenza, i riferimenti del punto vendita sono:</p>
-                <p className="font-semibold text-text-primary">{privacyConfig.business.name}</p>
+              <PolicySection id="titolare" number="01" title="Titolare del trattamento">
+                <p>Per i trattamenti relativi a questa landing, i riferimenti del punto vendita sono:</p>
                 <dl className="grid gap-x-5 gap-y-3 rounded-xl border border-border bg-surface p-5 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
-                  <dt>Ragione sociale</dt><dd><Pending>{privacyConfig.business.legalName}</Pending></dd>
-                  <dt>Partita IVA</dt><dd><Pending>{privacyConfig.business.vatNumber}</Pending></dd>
-                  <dt>Sede legale</dt><dd><Pending>{privacyConfig.business.registeredOffice}</Pending></dd>
-                  <dt>Recapito per richieste privacy</dt><dd><Pending>{privacyConfig.business.privacyContact}</Pending></dd>
+                  <dt>Denominazione commerciale</dt><dd>{privacyConfig.business.name}</dd>
+                  <dt>Titolare</dt><dd>{privacyConfig.business.owner}</dd>
+                  <dt>Intestazione dell’attività</dt><dd>{privacyConfig.business.legalName}</dd>
+                  <dt>Partita IVA</dt><dd>{privacyConfig.business.vatNumber}</dd>
+                  <dt>Indirizzo</dt><dd>{privacyConfig.business.streetAddress}<br />{privacyConfig.business.postalAddress}</dd>
+                  <dt>Telefono e recapito privacy</dt><dd><a href="tel:+393711316797" className={linkClass}>+39 371 131 6797</a></dd>
                 </dl>
-                <p>Il ruolo del punto vendita nella procedura di identificazione viene definito in base agli accordi con il concessionario Betpassion.</p>
               </PolicySection>
 
-              <PolicySection id="dati-finalita" number="02" title="Quali dati vengono trattati e perché">
+              <PolicySection id="dati-finalita" number="02" title="Dati trattati e finalità">
                 <h3 className="font-display text-2xl font-bold text-text-primary">Navigazione sul sito</h3>
                 <p>Il sito è ospitato su Vercel. Durante la navigazione possono essere trattati dati tecnici, come indirizzo IP, informazioni sul browser e richieste al server, necessari al funzionamento e alla sicurezza del servizio.</p>
                 <p>La base giuridica è il legittimo interesse al corretto funzionamento e alla protezione del sito (art. 6, par. 1, lett. f del GDPR), ove applicabile.</p>
-                <h3 className="pt-3 font-display text-2xl font-bold text-text-primary">Registrazione su Betpassion</h3>
-                <p>La landing non raccoglie direttamente dati di registrazione. Selezionando i pulsanti dedicati, l&apos;utente viene indirizzato a una piattaforma esterna, che gestisce i dati secondo la propria informativa privacy.</p>
-                <h3 className="pt-3 font-display text-2xl font-bold text-text-primary">Comunicazioni e identificazione tramite WhatsApp</h3>
-                <p>Il Bar Lamanna utilizza WhatsApp come canale di contatto per la procedura di identificazione.</p>
-                <p>Il titolare del punto vendita può ricevere nome, numero telefonico, messaggi e documenti d&apos;identità necessari alla verifica.</p>
-                <p>Secondo la procedura dichiarata, i documenti vengono eliminati dopo l&apos;identificazione, fatti salvi eventuali obblighi di conservazione.</p>
-                <p>La base giuridica di questo trattamento e il ruolo del punto vendita devono essere confermati in relazione agli obblighi normativi e agli accordi con il concessionario.</p>
+                <h3 className="pt-3 font-display text-2xl font-bold text-text-primary">Registrazione</h3>
+                <p>La landing non raccoglie dati di registrazione e non consente di caricare documenti. La registrazione e la verifica dei documenti avvengono direttamente sulla piattaforma esterna Betpassion, secondo la sua informativa privacy.</p>
+                <p>Bar Lamanna non riceve né conserva documenti attraverso la landing. Il sito non utilizza WhatsApp.</p>
               </PolicySection>
 
               <PolicySection id="cookie" number="03" title="Cookie e tracciamento">
-                <p>Il sito non utilizza Google Analytics, Meta Pixel o altri strumenti applicativi di tracciamento pubblicitario e profilazione.</p>
-                <p>Non sono presenti form o sistemi interni di raccolta dei dati personali.</p>
-                <p>Eventuali dati tecnici trattati dall&apos;infrastruttura di hosting sono gestiti per il funzionamento e la sicurezza del sito.</p>
-                <p>L&apos;assenza di cookie e strumenti non tecnici soggetti a consenso deve essere confermata sul sito pubblicato.</p>
+                <p>Il progetto non implementa strumenti di tracciamento pubblicitario o profilazione, né Google Analytics o Meta Pixel.</p>
+                <p>La landing non prevede cookie propri. Eventuali cookie tecnici connessi all&apos;erogazione del sito possono dipendere dall&apos;infrastruttura di hosting.</p>
               </PolicySection>
 
-              <PolicySection id="conservazione" number="04" title="Conservazione e destinatari">
-                <p>I dati tecnici di navigazione possono essere trattati da Vercel secondo le condizioni del servizio e i tempi di conservazione applicabili.</p>
-                <p>Le comunicazioni e i documenti ricevuti tramite WhatsApp sono gestiti dal punto vendita nell&apos;ambito delle attività di identificazione.</p>
-                <p>I documenti vengono eliminati dal punto vendita al termine delle operazioni, secondo la procedura dichiarata. Restano da confermare le modalità di cancellazione delle eventuali copie e i tempi di conservazione dei messaggi.</p>
-                <p>I dati possono essere trattati anche dai fornitori tecnologici e dai soggetti coinvolti nelle rispettive attività, secondo i ruoli privacy applicabili.</p>
-                <p>L&apos;utilizzo di fornitori esterni può comportare trasferimenti di dati fuori dallo Spazio Economico Europeo, nel rispetto delle garanzie previste dal GDPR.</p>
-                <p><Pending>{privacyConfig.retentionAndTransfersToVerify}</Pending></p>
+              <PolicySection id="conservazione" number="04" title="Hosting, destinatari e conservazione">
+                <p>Vercel fornisce l&apos;infrastruttura di hosting e può trattare i dati tecnici necessari a rendere disponibile e proteggere il sito, secondo le condizioni applicabili al servizio.</p>
+                <p>Per maggiori informazioni è disponibile l&apos;<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className={linkClass}>informativa privacy di Vercel<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
               </PolicySection>
 
-              <PolicySection id="diritti" number="05" title="Diritti degli utenti">
-                <p>Gli utenti possono esercitare, nei casi previsti dal GDPR, i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità dei propri dati, nonché revocare l&apos;eventuale consenso prestato.</p>
-                <p>Per richieste relative ai trattamenti del punto vendita è possibile utilizzare il seguente recapito:</p>
-                <p><Pending>{privacyConfig.business.privacyContact}</Pending></p>
-                <p>È inoltre possibile presentare reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer" className={linkClass}>Garante per la protezione dei dati personali<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
-              </PolicySection>
-
-              <PolicySection id="servizi-esterni" number="06" title="Servizi esterni e aggiornamenti">
-                <p>Per i trattamenti effettuati direttamente dalle piattaforme esterne, è possibile consultare le rispettive informative:</p>
+              <PolicySection id="servizi-esterni" number="05" title="Servizi esterni">
+                <p>La registrazione e le informazioni sul bonus sono accessibili tramite collegamenti a pagine esterne. I dati inseriti direttamente nelle pagine di destinazione non vengono raccolti da questa landing.</p>
                 <ul className={listClass}>
-                  <li>Informativa Privacy Betpassion — <Pending>{privacyConfig.concessionairePrivacyNotice}</Pending></li>
-                  <li><a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className={linkClass}>Informativa Privacy WhatsApp<span className="sr-only"> (si apre in una nuova scheda)</span></a></li>
-                  <li><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className={linkClass}>Informativa Privacy Vercel<span className="sr-only"> (si apre in una nuova scheda)</span></a></li>
+                  <li><a href={landingLinks.registration} target="_blank" rel="noopener noreferrer" className={linkClass}>Registrazione Betpassion<span className="sr-only"> (si apre in una nuova scheda)</span></a></li>
+                  <li><a href={landingLinks.bonus} target="_blank" rel="noopener noreferrer" className={linkClass}>Informazioni sul bonus<span className="sr-only"> (si apre in una nuova scheda)</span></a></li>
                 </ul>
-                <p>La presente informativa potrà essere aggiornata in caso di modifiche ai servizi o alle modalità di trattamento dei dati.</p>
-                <p><strong className="font-semibold text-text-primary">Ultimo aggiornamento:</strong> <Pending>{privacyConfig.lastUpdated}</Pending></p>
+                <p>Per il trattamento dei dati sulla piattaforma di registrazione, consulta l&apos;<a href="https://www.betpassion.it/info/privacy" target="_blank" rel="noopener noreferrer" className={linkClass}>informativa privacy ufficiale di Betpassion<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
+              </PolicySection>
+
+              <PolicySection id="diritti" number="06" title="Diritti degli interessati">
+                <p>Nei casi previsti dal GDPR, gli interessati possono chiedere l&apos;accesso, la rettifica, la cancellazione, la limitazione e la portabilità dei propri dati, nonché opporsi al trattamento.</p>
+                <p>Per le richieste relative ai trattamenti del punto vendita è possibile contattare il numero <a href="tel:+393711316797" className={linkClass}>+39 371 131 6797</a> oppure scrivere all&apos;indirizzo postale:</p>
+                <address className="not-italic text-text-primary">{privacyConfig.business.legalName}<br />{privacyConfig.business.streetAddress}<br />{privacyConfig.business.postalAddress}</address>
+                <p>È inoltre possibile presentare reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer" className={linkClass}>Garante per la protezione dei dati personali<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
               </PolicySection>
             </article>
           </div>
@@ -149,7 +131,7 @@ export default function PrivacyPolicyPage() {
       </main>
 
       <footer className="border-t border-border py-7 text-center text-sm text-text-secondary">
-        <p>Betpassion × {privacyConfig.business.name} · Privacy Policy in preparazione</p>
+        <p>Betpassion × {privacyConfig.business.name} · Privacy Policy</p>
       </footer>
     </>
   );

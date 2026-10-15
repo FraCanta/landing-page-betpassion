@@ -4,12 +4,13 @@ import { landingLinks } from "@/config/site";
 import { AppIcon } from "@/components/ui/AppIcon";
 import { Container } from "@/components/ui/Container";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { BonusNumberAnimation } from "@/components/landing/BonusNumberAnimation";
 
 const bonusPreview = {
   items: [
-    { icon: "solar:football-linear", amount: "20€", label: "Freebet Sport" },
-    { icon: "solar:gameboy-linear", amount: "600€", label: "Missioni Casinò" },
-    { icon: "solar:ticket-linear", amount: "4€", label: "Coupon GoS" },
+    { icon: "solar:football-linear", amount: "20€", value: 20, label: "Freebet Sport" },
+    { icon: "solar:gameboy-linear", amount: "600€", value: 600, label: "Missioni Casinò" },
+    { icon: "solar:ticket-linear", amount: "4€", value: 4, label: "Coupon GoS" },
   ],
 } as const;
 
@@ -18,10 +19,11 @@ export function BonusSection() {
     <SectionWrapper id="bonus" className="py-7 sm:py-10">
       <Container>
         <section data-reveal className="@container relative isolate overflow-hidden rounded-xl border border-border bg-background p-5 sm:p-7 lg:p-9">
+          <BonusNumberAnimation />
           <div className="relative z-10 md:w-[62%]">
             <p className="mb-3 text-[clamp(0.625rem,1cqw,0.875rem)] font-semibold uppercase tracking-[0.3em] text-text-secondary">Il tuo bonus di <span className="text-accent">benvenuto</span></p>
             <h2 className="font-display text-[clamp(2.5rem,6.4cqw,7rem)] font-bold uppercase leading-[0.92] tracking-tight text-text-primary">
-              <span className="block">Fino a <span className="text-[1.18em] italic text-accent">624€</span></span>
+              <span className="block">Fino a <span className="text-[1.18em] italic text-accent"><span className="sr-only">624€</span><span data-bonus-main aria-hidden="true" className="inline-block">624€</span></span></span>
               <span className="block">senza deposito</span>
             </h2>
             <p className="mt-4 max-w-[32ch] text-[clamp(1rem,2cqw,1.875rem)] leading-snug text-text-primary">Tre vantaggi per iniziare subito a giocare con Betpassion.</p>
@@ -30,7 +32,7 @@ export function BonusSection() {
               {bonusPreview.items.map((item) => (
                 <li key={item.label} className="flex items-center gap-3 rounded-lg border border-border bg-background/90 px-3 py-3 lg:px-4 lg:py-4">
                   <AppIcon name={item.icon} size={32} className="shrink-0 text-accent" />
-                  <span className="min-w-0"><strong className="block font-display text-[clamp(1.75rem,3cqw,3rem)] leading-none text-accent">{item.amount}</strong><span className="mt-1 block font-display text-[clamp(1rem,1.5cqw,1.5rem)] leading-tight text-text-primary">{item.label}</span></span>
+                  <span className="min-w-0"><strong className="block font-display text-[clamp(1.75rem,3cqw,3rem)] leading-none text-accent"><span className="sr-only">{item.amount}</span><span aria-hidden="true"><span className="relative inline-block tabular-nums"><span className="invisible">{item.value}</span><span data-bonus-target={item.value} className="absolute inset-0 text-right">{item.value}</span></span>€</span></strong><span className="mt-1 block font-display text-[clamp(1rem,1.5cqw,1.5rem)] leading-tight text-text-primary">{item.label}</span></span>
                 </li>
               ))}
             </ul>

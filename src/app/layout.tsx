@@ -17,6 +17,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://landing-page-betpassion.vercel.app"),
   title: "Betpassion con Bar Lamanna | Anteprima privata",
   description: "Anteprima privata della pagina Betpassion con Bar Lamanna.",
   robots: { index: false, follow: false },

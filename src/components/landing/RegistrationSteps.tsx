@@ -8,20 +8,20 @@ const steps = [
     number: "1",
     icon: "solar:pen-new-square-linear",
     title: "Registrati online",
-    description: "Compila il modulo di registrazione.",
+    description: "Compila il modulo di registrazione di Betpassion.",
     href: landingLinks.registration,
   },
   {
     number: "2",
-    icon: "logos:whatsapp-icon",
-    title: "Invia i documenti su WhatsApp",
-    description: "Manda i documenti richiesti al numero dedicato.",
+    icon: "solar:user-id-linear",
+    title: "Completa l’identificazione",
+    description: "Segui la procedura prevista per verificare il tuo account.",
   },
   {
     number: "3",
-    icon: "solar:gift-linear",
-    title: "Completa l’attivazione",
-    description: "Bar Lamanna finalizza la procedura e attiva il bonus.",
+    icon: "solar:check-circle-linear",
+    title: "Attiva il conto",
+    description: "Completa l’attivazione e accedi alle promozioni disponibili.",
   },
 ] as const;
 
