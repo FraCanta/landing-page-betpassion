@@ -6,7 +6,7 @@ export function QRCodeCard() {
   return (
     <section aria-labelledby="qr-heading" className="flex h-full flex-col items-center rounded-xl border border-border bg-background/90 p-5 text-center">
       <h3 id="qr-heading" className="font-display text-xl font-bold uppercase leading-tight text-text-primary 2xl:text-2xl">Scansiona e registrati</h3>
-      <a href={landingLinks.registration} className="mt-4 block rounded-lg bg-white p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Apri la registrazione Betpassion; QR code della registrazione">
+      <a href={landingLinks.registration} target="_blank" rel="noopener noreferrer" className="mt-4 block rounded-lg bg-white p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background" aria-label="Apri la registrazione Betpassion; QR code della registrazione">
         <span className="relative block bg-white p-2">
           <Image src={landingAssets.qrCode} alt="QR code per la registrazione Betpassion" width={256} height={256} sizes="(min-width: 1536px) 256px, (min-width: 1280px) 192px, 128px" className="size-32 object-contain xl:size-48 2xl:size-64" />
           <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l-4 border-t-4 border-accent" aria-hidden="true" />

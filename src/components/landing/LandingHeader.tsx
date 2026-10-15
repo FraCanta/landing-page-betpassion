@@ -9,7 +9,7 @@ export function LandingHeader() {
   return (
     <header data-enter="header" className="relative z-20 border-b border-white/10 bg-background/90">
       <Container className="flex min-h-[60px] items-center justify-between gap-4 py-2">
-        <a href="#inizio" aria-label="Betpassion con Bar Lamanna, inizio pagina" className="flex min-w-0 items-center gap-3 sm:gap-4">
+        <a href="#inizio" target="_blank" rel="noopener noreferrer" aria-label="Betpassion con Bar Lamanna, inizio pagina" className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Image src={landingAssets.logo} alt="Betpassion" width={240} height={67} priority className="h-auto w-36 sm:w-52 lg:w-60" />
           <span className="hidden border-l border-white/40 pl-4 text-sm text-text-primary sm:inline">con <strong className="font-bold">Bar Lamanna</strong></span>
         </a>

@@ -21,12 +21,12 @@ export function ActionButton(props: ActionButtonProps) {
   const classes = cn(base, styles[variant], className);
 
   if ("href" in props && props.href) {
-    const { href, disabled, target, rel } = props;
+    const { href, disabled, rel } = props;
     const anchorProps = Object.fromEntries(
       Object.entries(props).filter(([key]) => !["href", "disabled", "target", "rel", "variant", "children", "className"].includes(key)),
     ) as Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "target" | "rel" | "className">;
     if (disabled) return <span aria-disabled="true" className={cn(classes, "pointer-events-none opacity-50")}>{children}</span>;
-    return <a href={href} target={target} rel={target === "_blank" ? (rel ? `${rel} noopener noreferrer` : "noopener noreferrer") : rel} className={classes} {...anchorProps}>{children}</a>;
+    return <a href={href} target="_blank" rel={rel ? `${rel} noopener noreferrer` : "noopener noreferrer"} className={classes} {...anchorProps}>{children}</a>;
   }
 
   const buttonProps = Object.fromEntries(
