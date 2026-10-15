@@ -11,7 +11,7 @@ const benefits = [
   {
     icon: "solar:bill-list-linear",
     title: "Registrazione online veloce",
-    description: <>Pochi minuti per aprire<br className="hidden sm:block" /> il tuo conto.</>,
+    description: "Pochi minuti per aprire il tuo conto.",
   },
   {
     icon: "logos:whatsapp-icon",
@@ -24,14 +24,16 @@ export function BenefitSection() {
   return (
     <SectionWrapper id="informazioni" className="py-12 sm:py-16">
       <Container>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="mx-auto grid max-w-md gap-4 md:max-w-none md:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit) => (
-            <article key={benefit.title} className="rounded-xl border border-border bg-surface/80 p-5 sm:p-6">
-              <span className="mb-4 grid h-14 w-14 place-items-center rounded-full border border-text-secondary/70 text-accent">
-                <AppIcon name={benefit.icon} size={30} />
-              </span>
-              <h3 className="font-display text-2xl font-bold leading-tight text-text-primary sm:text-[1.7rem]">{benefit.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-text-secondary">{benefit.description}</p>
+            <article key={benefit.title} className="@container min-w-0 rounded-xl border border-border bg-surface/80 md:max-xl:last:col-span-2 md:max-xl:last:w-[calc((100%_-_1rem)/2)] md:max-xl:last:justify-self-center">
+              <div className="p-[clamp(1.25rem,6cqw,2.5rem)]">
+                <span className="mb-4 grid size-[clamp(4rem,17cqw,6rem)] place-items-center rounded-full border border-text-secondary/70 text-accent">
+                  <AppIcon name={benefit.icon} size={42} />
+                </span>
+                <h3 className="font-display text-[clamp(2rem,8cqw,2.75rem)] font-bold leading-[1.1] text-text-primary">{benefit.title}</h3>
+                <p className="mt-3 text-[clamp(1.125rem,4.5cqw,1.625rem)] leading-normal text-text-secondary">{benefit.description}</p>
+              </div>
             </article>
           ))}
         </div>

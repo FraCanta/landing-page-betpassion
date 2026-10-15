@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @theme inline {
   --color-background: #071624;
@@ -39,4 +40,32 @@ a {
 ::selection {
   background: #86e65a;
   color: #071624;
+}
+
+@keyframes enter-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes enter-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready [data-enter="header"] { animation: enter-up 550ms ease-out both; }
+  .motion-ready [data-enter="hero-copy"] { animation: enter-up 700ms ease-out 100ms both; }
+  .motion-ready [data-enter="hero-highlights"] { animation: enter-up 650ms ease-out 260ms both; }
+  .motion-ready [data-enter="hero-visual"] { animation: enter-fade 850ms ease-out 180ms both; }
+
+  .motion-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 650ms ease-out, transform 650ms ease-out;
+  }
+
+  .motion-ready [data-reveal][data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
