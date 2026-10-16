@@ -95,18 +95,22 @@ export default function PrivacyPolicyPage() {
                 <h3 className="font-display text-2xl font-bold text-text-primary">Navigazione sul sito</h3>
                 <p>Il sito è ospitato su Vercel. Durante la navigazione possono essere trattati dati tecnici, come indirizzo IP, informazioni sul browser e richieste al server, necessari al funzionamento e alla sicurezza del servizio.</p>
                 <p>La base giuridica è il legittimo interesse al corretto funzionamento e alla protezione del sito (art. 6, par. 1, lett. f del GDPR), ove applicabile.</p>
+                <h3 className="pt-3 font-display text-2xl font-bold text-text-primary">Analisi delle visite</h3>
+                <p>Solo dopo il consenso, il sito utilizza Google Analytics 4 per produrre statistiche sulle visite. Il servizio può trattare informazioni sulla navigazione, sulle pagine visitate, sul browser e sul dispositivo, oltre a identificatori associati ai cookie analitici. La base giuridica è il consenso (art. 6, par. 1, lett. a del GDPR).</p>
                 <h3 className="pt-3 font-display text-2xl font-bold text-text-primary">Registrazione</h3>
                 <p>La landing non raccoglie dati di registrazione e non consente di caricare documenti. La registrazione e la verifica dei documenti avvengono direttamente sulla piattaforma esterna Betpassion, secondo la sua informativa privacy.</p>
                 <p>Bar Lamanna non riceve né conserva documenti attraverso la landing. Il sito non utilizza WhatsApp.</p>
               </PolicySection>
 
               <PolicySection id="cookie" number="03" title="Cookie e tracciamento">
-                <p>Il progetto non implementa strumenti di tracciamento pubblicitario o profilazione, né Google Analytics o Meta Pixel.</p>
-                <p>La landing non prevede cookie propri. Eventuali cookie tecnici connessi all&apos;erogazione del sito possono dipendere dall&apos;infrastruttura di hosting.</p>
+                <p>Il tag di Google Analytics 4 (ID G-C863WHXE15) viene caricato soltanto dopo che l&apos;utente ha accettato i cookie analitici. In caso di rifiuto, il tag non viene caricato e la navigazione resta disponibile. Non sono implementati Meta Pixel o altri strumenti di tracciamento pubblicitario.</p>
+                <p>Con il consenso, Google Analytics può utilizzare i cookie <code>_ga</code> e <code>_ga_*</code> per distinguere utenti e sessioni. La durata predefinita indicata da Google è di due anni, soggetta alle impostazioni del browser e del servizio. La preferenza espressa viene conservata nel <code>localStorage</code> del dispositivo per ricordare la scelta.</p>
+                <p>Il pulsante “Preferenze cookie”, disponibile sul sito, permette di cambiare scelta o revocare il consenso. La revoca interrompe il caricamento del tag nelle visite successive e rimuove i cookie analitici accessibili dal sito. Eventuali cookie tecnici dell&apos;infrastruttura di hosting restano distinti da quelli analitici.</p>
               </PolicySection>
 
               <PolicySection id="conservazione" number="04" title="Hosting, destinatari e conservazione">
                 <p>Vercel fornisce l&apos;infrastruttura di hosting e può trattare i dati tecnici necessari a rendere disponibile e proteggere il sito, secondo le condizioni applicabili al servizio.</p>
+                <p>Quando viene prestato il consenso ai cookie analitici, Google riceve i dati di misurazione tramite Google Analytics 4. I tempi di conservazione dei dati di Analytics dipendono dalla configurazione effettiva della proprietà Google Analytics.</p>
                 <p>Per maggiori informazioni è disponibile l&apos;<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className={linkClass}>informativa privacy di Vercel<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
               </PolicySection>
 
@@ -117,6 +121,7 @@ export default function PrivacyPolicyPage() {
                   <li><a href={landingLinks.bonus} target="_blank" rel="noopener noreferrer" className={linkClass}>Informazioni sul bonus<span className="sr-only"> (si apre in una nuova scheda)</span></a></li>
                 </ul>
                 <p>Per il trattamento dei dati sulla piattaforma di registrazione, consulta l&apos;<a href="https://www.betpassion.it/info/privacy" target="_blank" rel="noopener noreferrer" className={linkClass}>informativa privacy ufficiale di Betpassion<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
+                <p>Per il servizio di analisi delle visite, consulta l&apos;<a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer" className={linkClass}>informativa privacy di Google<span className="sr-only"> (si apre in una nuova scheda)</span></a>.</p>
               </PolicySection>
 
               <PolicySection id="diritti" number="06" title="Diritti degli interessati">

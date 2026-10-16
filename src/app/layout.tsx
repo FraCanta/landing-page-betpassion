@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Manrope } from "next/font/google";
+import { AnalyticsConsent } from "@/components/analytics/AnalyticsConsent";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="it">
       <body className={`${barlowCondensed.variable} ${manrope.variable} antialiased`}>
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );

@@ -12,7 +12,7 @@ type PrivacyConfig = {
 };
 
 export const privacyConfig = {
-  lastUpdated: "15 ottobre 2026",
+  lastUpdated: "16 ottobre 2026",
   siteDomain: "landing-page-betpassion.vercel.app",
   business: {
     name: "Bar Lamanna",
